@@ -1,5 +1,5 @@
 from picovector import ANTIALIAS_FAST, PicoVector, Polygon, Transform
-from machine import WDT
+#from machine import WDT
 from presto import Presto
 import utime
 import gc
@@ -52,7 +52,7 @@ vector.set_transform(transform)
 jpd = jpegdec.JPEG(display)
 pnd = pngdec.PNG(display)
 
-wdt = WDT(timeout=8000)
+#wdt = WDT(timeout=8000)
 
 ssl_ctx = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
 #ssl_ctx.check_hostname = False
@@ -64,7 +64,7 @@ def connect_to_wifi():
     print("Connection status: " + status)
 
     for i in range(5):
-        wdt.feed()
+        #wdt.feed()
         # Get current time from NTP server
         try:
             #await asyncio.to_thread(ntptime.settime)
@@ -197,7 +197,7 @@ async def monitor_playback():
     
     while True:
         try:
-            wdt.feed()
+            #wdt.feed()
             try:
                 data = await fetch_data(status_url)
                 data = json.loads(data)
